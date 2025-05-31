@@ -1,60 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About – FirstName LastName</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Shweta Madhale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div class="video-container">
+    <!-- Video Background -->
+    <div class="video-background-container">
+        <div class="video-overlay"></div>
         <video autoplay muted loop playsinline class="video-background">
             <source src="assets/videos/background.mp4" type="video/mp4">
-            <!-- Fallback image -->
             <img src="assets/images/background-fallback.jpg" alt="Background">
         </video>
     </div>
-  <nav>
-    <div class="nav-left">
-      <a href="index.html">Shweta Madhale</a>
-    </div>
-    <div class="nav-center">
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-right">
-      <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </nav>
 
-  <section id="about">
-    <div class="section-header">
-      <h2 data-animate-type>What I Do</h2>
-    </div>
-    <div class="about-content">
-      <p>
-        I specialize in building machine learning systems and scalable software
-        solutions. My focus areas include natural language processing, computer
-        vision, and deploying AI models in production environments.
-      </p>
-    </div>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="index.html">Shweta Madhale</a>
+            </div>
+            <div class="nav-center">
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-right">
+                <a href="https://github.com/shwetamadhale" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/shwetamadhale" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </nav>
+    </header>
 
-    <div class="section-header">
-      <h2 data-animate-type>What I Do</h2>
-    </div>
-    <div class="tech-stack">
-      <div class="tech-item"><i class="fab fa-python"></i><span>Python</span></div>
-      <div class="tech-item"><i class="fas fa-brain"></i><span>TensorFlow</span></div>
-      <div class="tech-item"><i class="fas fa-project-diagram"></i><span>PyTorch</span></div>
-      <div class="tech-item"><i class="fab fa-aws"></i><span>AWS</span></div>
-      <div class="tech-item"><i class="fas fa-database"></i><span>SQL</span></div>
-      <div class="tech-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
-    </div>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-header">
+            <h2 data-animate-type>What I Do</h2>
+        </div>
+        
+        <div class="about-content">
+            <p>I specialize in building machine learning systems and scalable software solutions. My focus areas include natural language processing, computer vision, and deploying AI models in production environments.</p>
+        </div>
+        
+        <div class="section-header">
+            <h2 data-animate-type>Tech I Work With</h2>
+        </div>
+        
+        <div class="tech-stack">
+            <div class="tech-item">
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-brain"></i>
+                <span>TensorFlow</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-project-diagram"></i>
+                <span>PyTorch</span>
+            </div>
+            <div class="tech-item">
+                <i class="fab fa-aws"></i>
+                <span>AWS</span>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-database"></i>
+                <span>SQL</span>
+            </div>
+            <div class="tech-item">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+            </div>
+        </div>
+    </section>
 
-  <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

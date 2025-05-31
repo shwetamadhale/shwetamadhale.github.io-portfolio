@@ -1,70 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects – FirstName LastName</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Shweta Madhale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div class="video-container">
+    <!-- Video Background -->
+    <div class="video-background-container">
+        <div class="video-overlay"></div>
         <video autoplay muted loop playsinline class="video-background">
             <source src="assets/videos/background.mp4" type="video/mp4">
-            <!-- Fallback image -->
             <img src="assets/images/background-fallback.jpg" alt="Background">
         </video>
     </div>
-  <nav>
-    <div class="nav-left">
-      <a href="index.html">Shweta Madhale</a>
-    </div>
-    <div class="nav-center">
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-right">
-      <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </nav>
 
-  <section id="projects">
-    <div class="section-header">
-      <h2 data-animate-type>What I Do</h2>
-    </div>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="index.html">Shweta Madhale</a>
+            </div>
+            <div class="nav-center">
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-right">
+                <a href="https://github.com/shwetamadhale" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/shwetamadhale" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </nav>
+    </header>
 
-    <div class="project-grid">
-      <div class="project-card" style="--card-color: #ff6b6b;">
-        <h3>Sentiment Analysis Tool</h3>
-        <p>An NLP model that analyzes customer reviews with 92% accuracy using BERT architecture.</p>
-        <div class="project-links">
-          <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
-          <a href="#" class="project-link">Live Demo</a>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="section-header">
+            <h2 data-animate-type>My Projects</h2>
         </div>
-      </div>
 
-      <div class="project-card" style="--card-color: #48dbfb;">
-        <h3>Medical Image Classifier</h3>
-        <p>CNN model that classifies X-ray images with 96% precision using transfer learning.</p>
-        <div class="project-links">
-          <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
-          <a href="#" class="project-link">Live Demo</a>
+        <div class="project-grid">
+            <div class="project-card" style="--card-color: #ff6b6b;">
+                <h3>Sentiment Analysis Tool</h3>
+                <p>An NLP model that analyzes customer reviews with 92% accuracy using BERT architecture.</p>
+                <div class="project-links">
+                    <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    <a href="#" class="project-link">Live Demo</a>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-color: #48dbfb;">
+                <h3>Medical Image Classifier</h3>
+                <p>CNN model that classifies X-ray images with 96% precision using transfer learning.</p>
+                <div class="project-links">
+                    <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    <a href="#" class="project-link">Live Demo</a>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-color: #1dd1a1;">
+                <h3>Recommendation System</h3>
+                <p>Collaborative filtering algorithm for personalized content recommendations.</p>
+                <div class="project-links">
+                    <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    <a href="#" class="project-link">Live Demo</a>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="project-card" style="--card-color: #1dd1a1;">
-        <h3>Recommendation System</h3>
-        <p>Collaborative filtering algorithm for personalized content recommendations.</p>
-        <div class="project-links">
-          <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
-          <a href="#" class="project-link">Live Demo</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

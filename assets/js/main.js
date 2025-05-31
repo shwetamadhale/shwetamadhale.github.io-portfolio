@@ -87,24 +87,61 @@ function initAnimations() {
 
 // Video Background Handler
 function initVideoBackground() {
-    const video = document.querySelector('.video-background');
-    if (window.innerWidth < 768 || !video.canPlayType('video/mp4')) {
-        video.style.display = 'none';
-        document.querySelector('.video-container').style.background = 
-            'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+  const video = document.querySelector('.video-background');
+  const overlay = document.querySelector('.video-overlay');
+  
+  if (!video || !overlay) return;
+
+  // Fallback for mobile or unsupported browsers
+  if (window.innerWidth < 768 || !video.canPlayType('video/mp4')) {
+    video.style.display = 'none';
+    overlay.style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+    return;
+  }
+
+  // Try to play video
+  const playPromise = video.play();
+  
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      video.style.display = 'none';
+      overlay.style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+    });
+  }
+}
+
+// Set active page in navigation
+function setActiveNavLink() {
+  const currentPage = location.pathname.split('/').pop();
+  document.querySelectorAll('.nav-center a').forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if (linkPage === currentPage || 
+        (currentPage === '' && linkPage === 'index.html')) {
+      link.classList.add('current-page');
     }
+  });
+}
+
+// Smooth scrolling for anchor links
+function initSmoothScrolling() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 }
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
   initVideoBackground();
   initAnimations();
-  
-  // Set active page in navigation
-  const currentPage = location.pathname.split('/').pop();
-  document.querySelectorAll('.nav-center a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('current-page');
-    }
-  });
+  setActiveNavLink();
+  initSmoothScrolling();
 });
