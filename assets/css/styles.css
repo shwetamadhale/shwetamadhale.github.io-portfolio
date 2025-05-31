@@ -16,6 +16,7 @@ body {
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
+    padding-top: 80px;
 }
 
 html {
@@ -29,7 +30,9 @@ nav {
     align-items: center;
     padding: 1.5rem 5%;
     position: fixed;
-    width: 90%;
+    width: 100%; /* Changed from 90% */
+    left: 0; /* Added */
+    top: 0; /* Added */
     background: white;
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -319,5 +322,13 @@ nav {
     
     #connect h2 {
         font-size: 2.2rem;
+    }
+
+    /* Active page highlight */
+    nav a[href*="about.html"].active,
+    nav a[href*="projects.html"].active,
+    nav a[href*="contact.html"].active {
+        color: var(--primary);
+        font-weight: 600;
     }
 }

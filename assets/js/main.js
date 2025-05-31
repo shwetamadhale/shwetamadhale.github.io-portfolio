@@ -1,3 +1,35 @@
+// Continuous typing animation
+function typeWriter(text, element, speed, callback) {
+    let i = 0;
+    function typing() {
+        if (i < text.length) {
+            element.innerHTML = text.substring(0, i+1) + '<span class="cursor">|</span>';
+            i++;
+            setTimeout(typing, speed);
+        } else {
+            element.innerHTML = text.substring(0, i);
+            if (callback) callback();
+        }
+    }
+    typing();
+}
+
+function startTypingAnimation() {
+    const text = "Hi, I'm FirstName LastName";
+    const typingElement = document.querySelector('.typing-text');
+    
+    function loopAnimation() {
+        typeWriter(text, typingElement, 100, () => {
+            setTimeout(() => {
+                typingElement.innerHTML = ''; // Clear text
+                setTimeout(loopAnimation, 500); // Restart after pause
+            }, 2000); // Pause at end
+        });
+    }
+    
+    loopAnimation();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Typing Animation
     const text = "Hi, I'm FirstName LastName";
