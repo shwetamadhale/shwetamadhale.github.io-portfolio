@@ -87,27 +87,12 @@ function initAnimations() {
 
 // Video Background Handler
 function initVideoBackground() {
-  const video = document.querySelector('.video-background');
-  const overlay = document.querySelector('.video-overlay');
-  
-  if (!video || !overlay) return;
-
-  // Fallback for mobile or unsupported browsers
-  if (window.innerWidth < 768 || !video.canPlayType('video/mp4')) {
-    video.style.display = 'none';
-    overlay.style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
-    return;
-  }
-
-  // Try to play video
-  const playPromise = video.play();
-  
-  if (playPromise !== undefined) {
-    playPromise.catch(() => {
-      video.style.display = 'none';
-      overlay.style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
-    });
-  }
+    const video = document.querySelector('.video-background');
+    if (window.innerWidth < 768 || !video.canPlayType('video/mp4')) {
+        video.style.display = 'none';
+        document.querySelector('.video-container').style.background = 
+            'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+    }
 }
 
 // Initialize everything

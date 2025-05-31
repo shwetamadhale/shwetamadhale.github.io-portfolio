@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -100;
+  z-index: -1;
 }
 
 .video-background {
@@ -17,7 +17,7 @@
   object-fit: cover;
 }
 
-.video-overlay {
+/* .video-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -25,13 +25,16 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: -99;
+} */
+
+/* Make all content sections transparent */
+body {
+    background: transparent;
+    color: white; /* Light text for dark video */
 }
 
-/* Make sure body content scrolls over video */
-body {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
+html, body {
+    background: transparent !important;
 }
 
 /* Hero section should take full viewport */
@@ -250,10 +253,12 @@ nav {
 
 /* Section Common Styles */
 .section {
-    padding: 6rem 10%;
-    position: relative;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+    padding: 4rem;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 1200px;
 }
-
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
