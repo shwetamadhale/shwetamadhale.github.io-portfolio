@@ -1,16 +1,18 @@
-// Smooth Typing Animation Class
+// Enhanced Typing Animation Class
 class TypeMaster {
   constructor(element, options = {}) {
     this.element = element;
     this.text = element.dataset.animateText || element.textContent.trim();
     this.options = {
       typingSpeed: 100,
-      eraseSpeed: 50,
-      pauseBeforeErase: 2000,
+      eraseSpeed: 30,
+      pauseBeforeErase: 1500,
       pauseBeforeRetry: 500,
       loop: true,
       ...options
     };
+    this.currentText = '';
+    this.isDeleting = false;
     this.init();
   }
 
@@ -20,18 +22,15 @@ class TypeMaster {
     this.cursor.className = 'typing-cursor';
     this.element.appendChild(this.cursor);
     this.animate();
-    this.currentText = '';
-
   }
 
   animate() {
+    const speed = this.isDeleting ? this.options.eraseSpeed : this.options.typingSpeed;
+    
     if (!this.isDeleting) {
       // Typing phase
-      this.currentText = this.text.substring(0, (this.currentText?.length || 0) + 1);
-      this.element.insertBefore(
-        document.createTextNode(this.currentText.slice(-1)), 
-        this.cursor
-      );
+      this.currentText = this.text.substring(0, this.currentText.length + 1);
+      this.updateDisplay();
       
       if (this.currentText === this.text) {
         setTimeout(() => {
@@ -41,9 +40,9 @@ class TypeMaster {
         return;
       }
     } else {
-      // Deleting phase
-      this.element.removeChild(this.element.childNodes[this.element.childNodes.length - 2]);
-      this.currentText = this.currentText.slice(0, -1);
+      // Deleting phase (one character at a time)
+      this.currentText = this.currentText.substring(0, this.currentText.length - 1);
+      this.updateDisplay();
       
       if (this.currentText === '') {
         setTimeout(() => {
@@ -54,21 +53,25 @@ class TypeMaster {
       }
     }
     
-    setTimeout(() => this.animate(), this.isDeleting ? this.options.eraseSpeed : this.options.typingSpeed);
+    setTimeout(() => this.animate(), speed);
+  }
+
+  updateDisplay() {
+    this.element.innerHTML = this.currentText + 
+      (this.options.cursor !== false ? '<span class="cursor">|</span>' : '');
   }
 }
 
-// Initialize animations
+// Initialize all animations
 function initAnimations() {
-  // Hero title (continuous loop)
+  // Hero animation (continuous loop)
   const heroTitle = document.querySelector('.hero h1');
   if (heroTitle) {
-    heroTitle.dataset.animateText = heroTitle.textContent.trim();
     new TypeMaster(heroTitle, {
       typingSpeed: 100,
       eraseSpeed: 30,
       pauseBeforeErase: 1500,
-      pauseBeforeRetry: 300
+      pauseBeforeRetry: 500
     });
   }
 
@@ -77,46 +80,45 @@ function initAnimations() {
     new TypeMaster(el, {
       loop: false,
       typingSpeed: 80,
-      pauseBeforeErase: 0
+      cursor: false
     });
   });
 }
 
+// Video Background Handler
 function initVideoBackground() {
-  const video = document.getElementById('bg-video');
+  const video = document.querySelector('.video-background');
+  const overlay = document.querySelector('.video-overlay');
   
-  // Check if video can play
-  const canPlay = video.canPlayType('video/mp4');
-  
+  if (!video || !overlay) return;
+
   // Fallback for mobile or unsupported browsers
-  if (window.innerWidth < 768 || !canPlay) {
+  if (window.innerWidth < 768 || !video.canPlayType('video/mp4')) {
     video.style.display = 'none';
-    document.querySelector('.video-overlay').style.background = 
-      'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+    overlay.style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
     return;
   }
 
   // Try to play video
   const playPromise = video.play();
   
-  // Handle auto-play restrictions
   if (playPromise !== undefined) {
     playPromise.catch(() => {
       video.style.display = 'none';
-      document.querySelector('.video-overlay').style.background = 
-        'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+      overlay.style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
     });
   }
 }
 
-// Call this in your DOMContentLoaded event
+// Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
-    initVideoBackground();
-    initAnimations();
+  initVideoBackground();
+  initAnimations();
   
-  // Navigation active state
+  // Set active page in navigation
+  const currentPage = location.pathname.split('/').pop();
   document.querySelectorAll('.nav-center a').forEach(link => {
-    if (link.href === window.location.href) {
+    if (link.getAttribute('href') === currentPage) {
       link.classList.add('current-page');
     }
   });
