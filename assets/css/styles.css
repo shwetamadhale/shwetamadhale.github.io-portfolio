@@ -1,50 +1,52 @@
 /* Base Styles */
 :root {
-    --primary: #2962ff;
-    --dark: #0a192f;
-    --light: #ccd6f6;
-    --card-color: #2962ff; /* Default card color */
+  --primary: #2962ff;
+  --dark: #0a192f;
+  --light: #ccd6f6;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Calibre', 'Inter', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    overflow-x: hidden;
-    padding-top: 80px;
-    background-color: #f8f9fa;
-}
-
-html {
-    scroll-behavior: smooth;
+  font-family: 'Calibre', 'Inter', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 80px;
+  background-color: #f8f9fa;
 }
 
 /* Typing Animation Styles */
-.typing-text {
-    position: relative;
-    display: inline-block;
-}
-
 .cursor {
-    position: relative;
-    display: inline-block;
-    width: 3px;
-    background-color: var(--primary);
-    animation: blink 1s step-end infinite;
-    margin-left: 2px;
+  display: inline-block;
+  width: 3px;
+  background-color: var(--primary);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+  height: 1em;
+  vertical-align: middle;
 }
 
 @keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }
 
+[data-animate-type] {
+  min-height: 1.2em;
+  display: inline-block;
+}
+
+/* Navigation - Keep your existing nav styles */
+/* Hero Section - Keep your existing hero styles */
+/* About Section - Keep your existing about styles */
+/* Projects Section - Keep your existing projects styles */
+/* Connect Section - Keep your existing connect styles */
+/* Responsive Design - Keep your existing media queries */
 /* Navigation */
 nav {
     display: flex;
