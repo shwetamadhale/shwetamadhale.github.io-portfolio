@@ -21,19 +21,28 @@ body {
 }
 
 /* Typing Animation Styles */
-.cursor {
+/* Cursor Styles */
+.typing-cursor {
   display: inline-block;
-  width: 3px;
+  width: 2px;
   background-color: var(--primary);
   animation: blink 1s step-end infinite;
-  margin-left: 2px;
   height: 1em;
   vertical-align: middle;
+  margin-left: 2px;
 }
 
 @keyframes blink {
   from, to { opacity: 1; }
   50% { opacity: 0; }
+}
+
+/* Prevent layout shift */
+[data-animate-type], 
+.hero h1 {
+  min-height: 1.2em;
+  display: inline-block;
+  position: relative;
 }
 
 [data-animate-type] {
