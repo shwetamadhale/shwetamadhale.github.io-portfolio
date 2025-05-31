@@ -16,7 +16,7 @@ function typeWriter(text, element, speed, callback) {
 
 function startTypingAnimation() {
     const text = "Hi, I'm FirstName LastName";
-    const typingElement = document.querySelector('.typing-text');
+    const typingElement = document.querySelector('.hero h1');
     
     function loopAnimation() {
         typeWriter(text, typingElement, 100, () => {
