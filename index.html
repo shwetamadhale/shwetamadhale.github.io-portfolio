@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+    <!-- Video Background - MUST be first element in body -->
+    <div class="video-overlay"></div>
+    <video autoplay muted loop playsinline class="video-background">
+        <source src="assets/videos/background.mp4" type="video/mp4">
+        <!-- Fallback image if video doesn't load -->
+        <img src="assets/images/background-fallback.png" alt="Background">
+    </video>
+
     <!-- Navigation Bar -->
     <header>
         <nav>
             <div class="nav-left">
-            <a href="index.html">Shweta Madhale</a>
+                <a href="index.html">Shweta Madhale</a>
             </div>
             <div class="nav-center">
                 <a href="about.html">About</a>
@@ -39,16 +47,6 @@
         </div>
     </section>
 
-
     <script src="assets/js/main.js"></script>
 </body>
-
-<!-- Video Background -->
-<div class="video-overlay"></div>
-<video autoplay muted loop playsinline class="video-background">
-    <source src="assets/videos/background.mp4" type="video/mp4">
-    <!-- Fallback image if video doesn't load -->
-    <img src="assets/images/background-fallback.png" alt="Background">
-</video>
-
 </html>

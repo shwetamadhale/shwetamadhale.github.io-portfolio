@@ -80,24 +80,34 @@ function initAnimations() {
   });
 }
 
-// Video Background Loader
 function initVideoBackground() {
-    const video = document.querySelector('.video-background');
-    
-    // Fallback for mobile devices
-    if (window.innerWidth < 768 || !video.canPlayType('video/mp4')) {
-        video.style.display = 'none';
-        document.querySelector('.video-overlay').style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
-    } else {
-        video.play().catch(e => {
-            // Auto-play failed, show fallback
-            video.style.display = 'none';
-            document.querySelector('.video-overlay').style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
-        });
-    }
+  const video = document.getElementById('bg-video');
+  
+  // Check if video can play
+  const canPlay = video.canPlayType('video/mp4');
+  
+  // Fallback for mobile or unsupported browsers
+  if (window.innerWidth < 768 || !canPlay) {
+    video.style.display = 'none';
+    document.querySelector('.video-overlay').style.background = 
+      'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+    return;
+  }
+
+  // Try to play video
+  const playPromise = video.play();
+  
+  // Handle auto-play restrictions
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      video.style.display = 'none';
+      document.querySelector('.video-overlay').style.background = 
+        'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+    });
+  }
 }
 
-// Initialize everything
+// Call this in your DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', () => {
     initVideoBackground();
     initAnimations();
