@@ -80,9 +80,27 @@ function initAnimations() {
   });
 }
 
+// Video Background Loader
+function initVideoBackground() {
+    const video = document.querySelector('.video-background');
+    
+    // Fallback for mobile devices
+    if (window.innerWidth < 768 || !video.canPlayType('video/mp4')) {
+        video.style.display = 'none';
+        document.querySelector('.video-overlay').style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+    } else {
+        video.play().catch(e => {
+            // Auto-play failed, show fallback
+            video.style.display = 'none';
+            document.querySelector('.video-overlay').style.background = 'url(assets/images/background-fallback.jpg) center/cover no-repeat';
+        });
+    }
+}
+
 // Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
-  initAnimations();
+    initVideoBackground();
+    initAnimations();
   
   // Navigation active state
   document.querySelectorAll('.nav-center a').forEach(link => {
