@@ -20,6 +20,8 @@ class TypeMaster {
     this.cursor.className = 'typing-cursor';
     this.element.appendChild(this.cursor);
     this.animate();
+    this.currentText = '';
+
   }
 
   animate() {
