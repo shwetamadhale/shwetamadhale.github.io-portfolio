@@ -129,6 +129,12 @@ nav {
   transform: translateY(-2px);
 }
 
+/* For the resume link in navigation */
+.nav-center a[target="_blank"] {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid var(--primary);
+}
+
 /* Hero Section */
 .hero {
   height: 100vh;
@@ -231,6 +237,16 @@ nav {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/* For section spacing */
+.section + .section {
+  padding-top: 0;
+}
+
+/* For achievement categories */
+.section-header h2 {
+  margin-bottom: 3rem;
 }
 
 /* About Section */
