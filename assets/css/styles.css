@@ -79,6 +79,16 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
+    background: transparent;
+    backdrop-filter: none;
+    transition: all 0.3s ease; /* Add smooth transition */
+}
+
+/* Add this new class that will be toggled via JavaScript */
+header.scrolled {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Add this to prevent content overlap */
