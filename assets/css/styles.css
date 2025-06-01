@@ -146,8 +146,10 @@ nav {
 }
 
 .hero-content h1 {
-  font-size: 5rem;
-  margin-bottom: 1.5rem;
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .hero-content h2 {
@@ -246,6 +248,12 @@ nav {
   gap: 2rem;
   max-width: 900px;
   margin: 0 auto;
+}
+
+.tech-stack-label {
+  color: var(--primary-light);
+  font-style: italic;
+  margin-bottom: 1rem;
 }
 
 .tech-item {

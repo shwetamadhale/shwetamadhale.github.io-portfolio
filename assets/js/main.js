@@ -78,7 +78,7 @@ function initAnimations() {
   // Section headings (animate once)
   document.querySelectorAll('[data-animate-type]').forEach(el => {
     new TypeMaster(el, {
-      loop: false,
+      loop: true,
       typingSpeed: 80,
       cursor: false
     });
