@@ -79,8 +79,6 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    /* background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(10px); */
 }
 
 /* Add this to prevent content overlap */
@@ -90,7 +88,6 @@ main {
     margin-top: 80px; /* Adjust based on your navbar height */
 }
 
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -99,7 +96,6 @@ nav {
     max-width: 1400px;
     margin: 0 auto;
 }
-
 
 .nav-left a {
     font-size: 1.5rem;
@@ -252,11 +248,35 @@ nav {
     line-height: 1.8;
 }
 
+/* Skills Section */
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-category {
+    margin-bottom: 3rem;
+}
+
+.skills-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.skills-category h3 i {
+    font-size: 1.2rem;
+}
+
 .tech-stack {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 1.5rem;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -269,11 +289,13 @@ nav {
     border: 1px solid var(--border-light);
     border-radius: 10px;
     transition: all 0.3s;
+    text-align: center;
 }
 
 .tech-item:hover {
     border-color: var(--primary);
     transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .tech-item i {
@@ -387,62 +409,6 @@ nav {
     line-height: 1.8;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-    nav {
-        flex-direction: column;
-        padding: 1rem;
-        gap: 1rem;
-    }
-    
-    .nav-center {
-        order: 3;
-        width: 100%;
-        margin-top: 1rem;
-    }
-    
-    .hero {
-        height: auto;
-        padding: 4rem 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .section {
-        padding: 4rem 2rem;
-    }
-    
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 250px;
-    }
-}
-
-@media (max-width: 480px) {
-    .tech-stack {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    }
-    
-    .nav-center a {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .section {
-        padding: 3rem 1.5rem;
-    }
-}
-
-
 /* Timeline Styles */
 .timeline-section {
     padding: 4rem 5%;
@@ -525,8 +491,46 @@ nav {
     margin-bottom: 0.5rem;
 }
 
-/* Responsive Timeline */
+/* Responsive Design */
+@media (max-width: 992px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .nav-center {
+        order: 3;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .hero {
+        height: auto;
+        padding: 4rem 1rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .section {
+        padding: 4rem 2rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    /* Timeline responsive adjustments */
     .timeline::before {
         left: 2rem;
     }
@@ -544,5 +548,33 @@ nav {
     
     .timeline-dot {
         left: 1rem !important;
+    }
+    
+    /* Skills responsive */
+    .tech-stack {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-stack {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .nav-center a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .section {
+        padding: 3rem 1.5rem;
+    }
+    
+    .tech-item i {
+        font-size: 1.5rem;
+    }
+    
+    .tech-item span {
+        font-size: 0.8rem;
     }
 }
