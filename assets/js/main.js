@@ -92,6 +92,22 @@ function initAnimations() {
     });
 }
 
+
+// Add this to main.js
+function handleScroll() {
+    const header = document.querySelector('header');
+    const scrollPosition = window.scrollY;
+    
+    if (scrollPosition > 10) {
+        header.style.backgroundColor = 'rgba(0,0,0,0.7)';
+        header.style.backdropFilter = 'blur(10px)';
+    } else {
+        header.style.backgroundColor = 'transparent';
+        header.style.backdropFilter = 'none';
+    }
+}
+
+
 // Set active page in navigation
 function setActiveNavLink() {
     const currentPage = location.pathname.split('/').pop() || 'index.html';
@@ -127,4 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initialize
 });

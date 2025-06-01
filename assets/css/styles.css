@@ -79,9 +79,17 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(10px);
+    /* background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px); */
 }
+
+/* Add this to prevent content overlap */
+main {
+    position: relative;
+    z-index: 1;
+    margin-top: 80px; /* Adjust based on your navbar height */
+}
+
 
 nav {
     display: flex;
@@ -91,6 +99,7 @@ nav {
     max-width: 1400px;
     margin: 0 auto;
 }
+
 
 .nav-left a {
     font-size: 1.5rem;
@@ -148,7 +157,7 @@ nav {
     justify-content: center;
     text-align: center;
     padding: 0 2rem;
-    margin-top: 80px;
+    margin-top: 0;
 }
 
 .hero-content {
