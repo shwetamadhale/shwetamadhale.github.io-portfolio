@@ -441,15 +441,15 @@ nav {
     padding: 4rem 5%;
     position: relative;
 }
-
 .timeline {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem 0;
+    min-height: 100px; /* Ensure minimum height */
 }
 
-/* Vertical Line */
+/* Vertical Line - Fixed version */
 .timeline::before {
     content: '';
     position: absolute;
@@ -458,8 +458,9 @@ nav {
     top: 0;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    margin-left: -2px; /* Half of width to center perfectly */
     z-index: 1;
+    height: 100%; /* Explicit height */
 }
 
 .timeline-item {
@@ -467,6 +468,7 @@ nav {
     position: relative;
     width: 50%;
     box-sizing: border-box;
+    margin-bottom: 2rem; /* Ensure spacing between items */
 }
 
 /* Left Side Items */
