@@ -79,14 +79,12 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    
 }
 
-/* Add this to prevent content overlap */
 main {
     position: relative;
     z-index: 1;
-    margin-top: 80px; /* Adjust based on your navbar height */
+    margin-top: 80px;
 }
 
 nav {
@@ -375,37 +373,35 @@ nav {
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2.5rem; /* Increased gap */
-    max-width: 1400px; /* Wider max width */
+    gap: 2.5rem;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .achievement-card {
     border: 1px solid var(--border-light);
-    padding: 1.8rem; /* Increased padding */
-    border-radius: 12px; /* More rounded corners */
+    padding: 1.8rem;
+    border-radius: 12px;
     transition: all 0.3s;
     display: flex;
     flex-direction: column;
-    min-height: 280px; /* Minimum height */
+    min-height: 280px;
 }
 
 .achievement-card h3 {
     font-size: 1.2rem;
     line-height: 1.4;
     margin-bottom: 1rem;
-    flex-grow: 1; /* Push button to bottom */
+    flex-grow: 1;
     word-break: break-word;
     overflow-wrap: break-word;
 }
-
 
 .achievement-card:hover {
     border-color: var(--primary);
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
 
 .achievement-card p {
     margin-bottom: 1.5rem;
@@ -415,44 +411,12 @@ nav {
     overflow-wrap: break-word;
 }
 
-/* Certificate Button */
 .achievement-card .btn {
-    margin-top: auto; /* Push to bottom */
+    margin-top: auto;
     padding: 0.7rem 1.5rem;
     font-size: 0.9rem;
-    align-self: flex-start; /* Align left */
-    white-space: nowrap; /* Prevent button text wrapping */
-}
-
-
-
-/* Responsive adjustments */
-@media (min-width: 1200px) {
-    .achievements-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
-    }
-}
-
-@media (max-width: 1199px) and (min-width: 900px) {
-    .achievements-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
-    }
-}
-
-@media (max-width: 899px) and (min-width: 600px) {
-    .achievements-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on small-medium screens */
-    }
-}
-
-@media (max-width: 599px) {
-    .achievements-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-    }
-    
-    .achievement-card {
-        min-height: auto; /* Flexible height on mobile */
-    }
+    align-self: flex-start;
+    white-space: nowrap;
 }
 
 /* Contact Section */
@@ -471,6 +435,7 @@ nav {
     font-size: 1.1rem;
     line-height: 1.8;
 }
+
 /* Vertical Timeline Styles */
 .timeline-section {
     padding: 4rem 5%;
@@ -484,7 +449,7 @@ nav {
     padding: 2rem 0;
 }
 
-/* This creates the vertical line */
+/* Vertical Line */
 .timeline::before {
     content: '';
     position: absolute;
@@ -494,7 +459,7 @@ nav {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1; /* Ensure it's above the background but below content */
+    z-index: 1;
 }
 
 .timeline-item {
@@ -504,20 +469,20 @@ nav {
     box-sizing: border-box;
 }
 
-/* Odd items (left side) */
+/* Left Side Items */
 .timeline-item:nth-child(odd) {
     left: 0;
     padding-right: 4rem;
     text-align: right;
 }
 
-/* Even items (right side) */
+/* Right Side Items */
 .timeline-item:nth-child(even) {
     left: 50%;
     padding-left: 4rem;
 }
 
-/* Timeline dots */
+/* Timeline Dots */
 .timeline-dot {
     position: absolute;
     width: 20px;
@@ -526,15 +491,13 @@ nav {
     background: var(--primary);
     border: 3px solid var(--text-lighter);
     top: 1.5rem;
-    z-index: 2; /* Above the line */
+    z-index: 2;
 }
 
-/* Position dots for left items */
 .timeline-item:nth-child(odd) .timeline-dot {
     right: -10px;
 }
 
-/* Position dots for right items */
 .timeline-item:nth-child(even) .timeline-dot {
     left: -10px;
 }
@@ -546,9 +509,6 @@ nav {
     backdrop-filter: blur(5px);
     border: 1px solid var(--border-light);
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 2; /* Above the line */
-    /* Text handling */
     word-break: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
@@ -569,7 +529,6 @@ nav {
 .timeline-content p {
     font-size: 0.95rem;
     line-height: 1.5;
-    margin-bottom: 0;
 }
 
 .timeline-date {
@@ -618,19 +577,16 @@ nav {
         max-width: 250px;
     }
     
-    /* Timeline responsive adjustments */
-@media (max-width: 768px) {
-
+    /* Timeline Mobile Adjustments */
     .timeline::before {
         left: 2rem;
     }
     
     .timeline-item {
+        width: 100%;
         padding-left: 5rem;
         padding-right: 0;
         text-align: left !important;
-        width: 45%; /* Reduce from 50% to prevent squeezing */
-        min-width: 300px; /* Set minimum width */
     }
     
     .timeline-item:nth-child(even) {
@@ -641,7 +597,6 @@ nav {
         left: 1rem !important;
     }
     
-    /* Skills responsive */
     .tech-stack {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
@@ -667,5 +622,9 @@ nav {
     
     .tech-item span {
         font-size: 0.8rem;
+    }
+    
+    .timeline-content {
+        padding: 1.2rem;
     }
 }
