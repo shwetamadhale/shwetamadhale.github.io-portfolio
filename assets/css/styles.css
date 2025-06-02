@@ -79,19 +79,14 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    transition: all 0.3s ease;
+    
 }
 
-header.scrolled {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Add this to prevent content overlap */
 main {
     position: relative;
     z-index: 1;
-    margin-top: 80px;
+    margin-top: 80px; /* Adjust based on your navbar height */
 }
 
 nav {
@@ -380,35 +375,37 @@ nav {
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2.5rem;
-    max-width: 1400px;
+    gap: 2.5rem; /* Increased gap */
+    max-width: 1400px; /* Wider max width */
     margin: 0 auto;
 }
 
 .achievement-card {
     border: 1px solid var(--border-light);
-    padding: 1.8rem;
-    border-radius: 12px;
+    padding: 1.8rem; /* Increased padding */
+    border-radius: 12px; /* More rounded corners */
     transition: all 0.3s;
     display: flex;
     flex-direction: column;
-    min-height: 280px;
+    min-height: 280px; /* Minimum height */
 }
 
 .achievement-card h3 {
     font-size: 1.2rem;
     line-height: 1.4;
     margin-bottom: 1rem;
-    flex-grow: 1;
+    flex-grow: 1; /* Push button to bottom */
     word-break: break-word;
     overflow-wrap: break-word;
 }
+
 
 .achievement-card:hover {
     border-color: var(--primary);
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
+
 
 .achievement-card p {
     margin-bottom: 1.5rem;
@@ -418,106 +415,44 @@ nav {
     overflow-wrap: break-word;
 }
 
+/* Certificate Button */
 .achievement-card .btn {
-    margin-top: auto;
+    margin-top: auto; /* Push to bottom */
     padding: 0.7rem 1.5rem;
     font-size: 0.9rem;
-    align-self: flex-start;
-    white-space: nowrap;
+    align-self: flex-start; /* Align left */
+    white-space: nowrap; /* Prevent button text wrapping */
 }
 
-/* Horizontal 
-/* Horizontal Timeline with Alternating Cards */
-.timeline-section {
-    padding: 5rem 7%;
-    position: relative;
-    max-width: 1400px;
-    margin: 0 auto;
-    overflow-x: auto;
+
+
+/* Responsive adjustments */
+@media (min-width: 1200px) {
+    .achievements-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+    }
 }
 
-.horizontal-timeline {
-    display: flex;
-    min-height: 400px;
-    position: relative;
-    padding: 2rem 0;
+@media (max-width: 1199px) and (min-width: 900px) {
+    .achievements-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
+    }
 }
 
-/* Connecting Line */
-.horizontal-timeline::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--primary);
-    transform: translateY(-50%);
-    z-index: 1;
+@media (max-width: 899px) and (min-width: 600px) {
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on small-medium screens */
+    }
 }
 
-.timeline-item {
-    flex: 1;
-    position: relative;
-    min-width: 250px;
-    padding: 0 1.5rem;
-}
-
-/* Timeline Dot */
-.timeline-dot {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--primary);
-    border: 3px solid var(--text-lighter);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-}
-
-/* Alternating Card Positioning */
-.timeline-item:nth-child(odd) .timeline-content {
-    top: 20%;
-    bottom: auto;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    top: auto;
-    bottom: 20%;
-}
-
-.timeline-content {
-    position: absolute;
-    width: calc(100% - 3rem);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    border: 1px solid var(--border-light);
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.timeline-content h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-    line-height: 1.3;
-}
-
-.timeline-date {
-    display: block;
-    color: var(--primary-light);
-    font-weight: 500;
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
-}
-
-.timeline-content p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+@media (max-width: 599px) {
+    .achievements-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+    
+    .achievement-card {
+        min-height: auto; /* Flexible height on mobile */
+    }
 }
 
 /* Contact Section */
@@ -536,14 +471,112 @@ nav {
     font-size: 1.1rem;
     line-height: 1.8;
 }
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .achievements-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+/* 
+/* Timeline Styles */
+.timeline-section {
+    padding: 4rem 5%;
+    position: relative;
 }
 
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: var(--primary);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    padding: 1rem 2rem;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 4rem;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 4rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 3px solid var(--text-lighter);
+    top: 1.5rem;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -10px;
+}
+
+.timeline-content {
+    /* Existing styles */
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    
+    /* New fixes */
+    min-width: 0; /* Fixes flexbox overflow */
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary);
+}
+
+.timeline-content h3 {
+    /* Ensure the heading breaks properly */
+    word-break: break-word;
+    hyphens: auto;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+
+.timeline-date {
+    display: block;
+    color: var(--primary-light);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+} */
+
+/* Responsive Design */
 @media (max-width: 992px) {
     nav {
         flex-direction: column;
@@ -560,14 +593,6 @@ nav {
     .hero {
         height: auto;
         padding: 4rem 1rem;
-    }
-    
-    .achievements-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .timeline-item {
-        flex: 0 0 260px;
     }
 }
 
@@ -590,13 +615,30 @@ nav {
         max-width: 250px;
     }
     
-    .tech-stack {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    /* Timeline responsive adjustments */
+    .timeline::before {
+        left: 2rem;
     }
     
     .timeline-item {
-        flex: 0 0 220px;
-        min-height: 200px;
+        padding-left: 5rem;
+        padding-right: 0;
+        text-align: left !important;
+        width: 45%; /* Reduce from 50% to prevent squeezing */
+        min-width: 300px; /* Set minimum width */
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-dot {
+        left: 1rem !important;
+    }
+    
+    /* Skills responsive */
+    .tech-stack {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
 }
 
@@ -620,70 +662,5 @@ nav {
     
     .tech-item span {
         font-size: 0.8rem;
-    }
-    
-    .achievements-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .achievement-card {
-        min-height: auto;
-    }
-    
-    .timeline-item {
-        flex: 0 0 200px;
-        padding: 0 1rem;
-    }
-    
-    .timeline-content {
-        padding: 1.2rem;
-    }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-    .horizontal-timeline {
-        min-height: 500px;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content {
-        top: 15%;
-    }
-    
-    .timeline-item:nth-child(even) .timeline-content {
-        bottom: 15%;
-    }
-}
-
-@media (max-width: 768px) {
-    .timeline-section {
-        padding: 4rem 2rem;
-    }
-    
-    .timeline-item {
-        min-width: 200px;
-    }
-    
-    .timeline-content {
-        width: calc(100% - 2rem);
-        padding: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .horizontal-timeline {
-        min-height: 600px;
-    }
-    
-    .timeline-item {
-        min-width: 180px;
-    }
-    
-    .timeline-content h3 {
-        font-size: 1.1rem;
-    }
-    
-    .timeline-content p {
-        font-size: 0.9rem;
     }
 }
